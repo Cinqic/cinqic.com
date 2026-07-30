@@ -1,0 +1,77 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #000;
+  color: #f5f5f4;
+}
+
+* { box-sizing: border-box; }
+
+html, body { min-height: 100%; margin: 0; }
+
+body { overflow-x: hidden; }
+
+.landing {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 2rem;
+  text-align: center;
+}
+
+.content { max-width: min(100%, 56rem); }
+
+.title {
+  color: #f5f5f4;
+  cursor: default;
+  font-size: clamp(2.25rem, 8vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+  margin: 0;
+  outline: none;
+  overflow-wrap: anywhere;
+  transform: translate3d(0, 0, 0);
+  transition: color 260ms ease, letter-spacing 350ms ease, text-shadow 350ms ease, transform 350ms ease;
+  user-select: none;
+}
+
+.title:hover, .title:focus-visible {
+  color: #fff;
+  text-shadow: 0 0 1.75rem rgb(255 255 255 / 0.22);
+}
+
+.title:focus-visible { box-shadow: 0 0 0 2px #9ca3af; border-radius: 0.15em; }
+
+.title.is-pulsing { animation: title-pulse 520ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+.status {
+  animation: breathe 3.6s ease-in-out infinite;
+  color: #9ca3af;
+  font-size: clamp(0.95rem, 2vw, 1.125rem);
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+  margin: 1.2rem 0 0;
+}
+
+@keyframes breathe { 50% { opacity: 0.56; } }
+
+@keyframes title-pulse {
+  0%, 100% { transform: var(--pointer-transform, translate3d(0, 0, 0)) scale(1); }
+  45% { transform: var(--pointer-transform, translate3d(0, 0, 0)) scale(1.018); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .title.is-tracking { letter-spacing: calc(-0.055em + var(--tracking, 0em)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
