@@ -5,7 +5,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 PAGES=[ROOT/"index.html",ROOT/"privacy/index.html",ROOT/"404.html"]
-REQUIRED=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js",ROOT/"assets/img/cinqic-social.svg"]
+REQUIRED=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js",ROOT/"assets/img/juniper-social.png"]
 class Links(HTMLParser):
  def __init__(self):super().__init__();self.links=[]
  def handle_starttag(self,tag,attrs):
@@ -16,8 +16,9 @@ def main():
  for path in PAGES+REQUIRED:
   if not path.is_file():return fail("missing "+str(path.relative_to(ROOT)))
  if (ROOT/"CNAME").read_text().strip()!="cinqic.com":return fail("CNAME must be cinqic.com")
- public="\n".join(p.read_text(encoding="utf-8") for p in PAGES+REQUIRED)
- forbidden=["http:"+"//cinqic.com","Coming"+" soon","lorem"+" ipsum"]
+ text_assets=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js"]
+ public="\n".join(p.read_text(encoding="utf-8") for p in PAGES+text_assets)
+ forbidden=["http:"+"//cinqic.com","Coming"+" soon","lorem"+" ipsum","Anthro"+"pic","Constitu"+"tional"+" AI","Juniper"+" Baby"]
  for term in forbidden:
   if term.lower() in public.lower():return fail("obsolete or insecure public text: "+term)
  for page in PAGES:
