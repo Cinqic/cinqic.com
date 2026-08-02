@@ -1,31 +1,20 @@
 # Cinqic.com
 
-The static company website for Cinqic, hosted by GitHub Pages at `cinqic.com`. It presents Cinqic and the planned Juniper product without implying public availability.
+The official static website for Cinqic: open-source software and local-first artificial intelligence. It introduces Juniper, Cinqic’s future flagship assistant, honestly as in development.
 
-## Stack and requirements
+## Stack and commands
 
-Plain HTML, token-based CSS, and minimal vanilla JavaScript. There are no package dependencies or build dependencies. Python 3 is only used for local verification and preview commands.
-
-## Commands
+Plain HTML, CSS, and minimal vanilla JavaScript. There are no package dependencies or build step.
 
 ```powershell
 python scripts/verify_site.py
 python -m http.server 8000 --directory .
 ```
 
-Open `http://localhost:8000`. GitHub Pages serves the repository root directly; there is no separate build artifact.
+## Maintenance
 
-## Editing
+Company copy and the planned founding-date state live in `assets/js/company.js`. The single-page public content is `index.html`; `privacy/index.html` describes the actual informational site. Shared design tokens and responsive styling are in `assets/css/site.css`.
 
-- `assets/js/company.js` is the centralized source for the launch date, mission, vision, and product statuses.
-- `assets/css/site.css` contains the design tokens and shared layout system.
-- Route content lives in `index.html`, `juniper/`, `independent-ai/`, `about/`, `transparency/`, `privacy/`, and `terms/`.
-- `assets/img/` contains the local social-preview asset. Replace it only with an approved brand asset.
+## Deployment and HTTPS
 
-## Deployment
-
-GitHub Pages is configured to serve `main` from the repository root. `CNAME` must remain `cinqic.com`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/LAUNCH_CHECKLIST.md](docs/LAUNCH_CHECKLIST.md) before publishing.
-
-## Current status
-
-The site is launch-preparation material. Juniper Baby 1 0.8B is in development and is not a public release.
+GitHub Pages serves `main` from the repository root. `CNAME` must remain exactly `cinqic.com`. DNS and GitHub Pages settings—not repository files—control the TLS certificate and HTTP-to-HTTPS redirect; see [docs/HTTPS_DEPLOYMENT.md](docs/HTTPS_DEPLOYMENT.md).

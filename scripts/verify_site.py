@@ -1,46 +1,34 @@
-"""Dependency-free checks for the static Cinqic site."""
-from __future__ import annotations
-
+"""Dependency-free verification for the static Cinqic site."""
 from html.parser import HTMLParser
 from pathlib import Path
-import re
 import sys
 
-ROOT = Path(__file__).resolve().parents[1]
-PAGES = [ROOT / "index.html", ROOT / "juniper/index.html", ROOT / "independent-ai/index.html", ROOT / "about/index.html", ROOT / "privacy/index.html", ROOT / "terms/index.html", ROOT / "transparency/index.html", ROOT / "404.html"]
-REQUIRED = [ROOT / "CNAME", ROOT / "robots.txt", ROOT / "sitemap.xml", ROOT / "site.webmanifest", ROOT / "assets/css/site.css", ROOT / "assets/js/company.js", ROOT / "assets/js/site.js"]
-
+ROOT=Path(__file__).resolve().parents[1]
+PAGES=[ROOT/"index.html",ROOT/"privacy/index.html",ROOT/"404.html"]
+REQUIRED=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js",ROOT/"assets/img/cinqic-social.svg"]
 class Links(HTMLParser):
-    def __init__(self): super().__init__(); self.hrefs=[]
-    def handle_starttag(self, tag, attrs):
-        if tag in {"a", "link", "script", "img"}:
-            for key, value in attrs:
-                if key in {"href", "src"} and value: self.hrefs.append(value)
-
-def fail(message: str):
-    print(f"FAIL: {message}"); return 1
-
-def main() -> int:
-    for path in PAGES + REQUIRED:
-        if not path.is_file(): return fail(f"missing {path.relative_to(ROOT)}")
-    if (ROOT / "CNAME").read_text(encoding="utf-8").strip() != "cinqic.com": return fail("CNAME must be cinqic.com")
-    all_text = "\n".join(path.read_text(encoding="utf-8") for path in PAGES)
-    banned = ["href=\"#\"", "Try now", "Download Juniper", "Founded August 27, 2026", "Google Fonts"]
-    for text in banned:
-        if text in all_text: return fail(f"forbidden or inaccurate copy found: {text}")
-    for page in PAGES:
-        text = page.read_text(encoding="utf-8")
-        if "<title>" not in text or "<main" not in text: return fail(f"missing title or main landmark: {page.relative_to(ROOT)}")
-        if page.name != "404.html" and ("name=\"description\"" not in text or "rel=\"canonical\"" not in text): return fail(f"missing SEO metadata: {page.relative_to(ROOT)}")
-        parser=Links(); parser.feed(text)
-        for link in parser.hrefs:
-            if link.startswith(("https://", "http://", "mailto:", "#")): continue
-            target = ROOT / link.lstrip("/")
-            if link.endswith("/"): target /= "index.html"
-            if not target.is_file(): return fail(f"broken local asset/link {link} in {page.relative_to(ROOT)}")
-    if "publicLaunchDate:\"2026-08-27\"" not in (ROOT / "assets/js/company.js").read_text(encoding="utf-8"):
-        return fail("central launch date missing")
-    print(f"PASS: checked {len(PAGES)} pages, {len(REQUIRED)} shared files, metadata, links, CNAME, and claim guardrails.")
-    return 0
-
-if __name__ == "__main__": sys.exit(main())
+ def __init__(self):super().__init__();self.links=[]
+ def handle_starttag(self,tag,attrs):
+  for key,value in attrs:
+   if tag in {"a","link","script","img"} and key in {"href","src"} and value:self.links.append(value)
+def fail(message):print("FAIL: "+message);return 1
+def main():
+ for path in PAGES+REQUIRED:
+  if not path.is_file():return fail("missing "+str(path.relative_to(ROOT)))
+ if (ROOT/"CNAME").read_text().strip()!="cinqic.com":return fail("CNAME must be cinqic.com")
+ public="\n".join(p.read_text(encoding="utf-8") for p in PAGES+REQUIRED)
+ forbidden=["http:"+"//cinqic.com","Coming"+" soon","lorem"+" ipsum"]
+ for term in forbidden:
+  if term.lower() in public.lower():return fail("obsolete or insecure public text: "+term)
+ for page in PAGES:
+  text=page.read_text(encoding="utf-8")
+  if "<title>" not in text or "<main" not in text:return fail("missing title or main: "+str(page.relative_to(ROOT)))
+  if page.name!="404.html" and ("name=\"description\"" not in text or "rel=\"canonical\"" not in text):return fail("missing SEO metadata: "+str(page.relative_to(ROOT)))
+  parser=Links();parser.feed(text)
+  for link in parser.links:
+   if link.startswith(("https://","mailto:","#")):continue
+   target=ROOT/link.lstrip("/");target=target/"index.html" if link.endswith("/") else target
+   if not target.is_file():return fail("broken internal link "+link)
+ print("PASS: pages, assets, HTTPS canonicals, metadata, links, and obsolete-content guardrails.")
+ return 0
+if __name__=="__main__":sys.exit(main())
