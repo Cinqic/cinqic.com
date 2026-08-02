@@ -18,3 +18,5 @@ Company copy and the planned founding-date state live in `assets/js/company.js`.
 ## Deployment and HTTPS
 
 GitHub Pages serves `main` from the repository root. `CNAME` must remain exactly `cinqic.com`. DNS and GitHub Pages settings—not repository files—control the TLS certificate and HTTP-to-HTTPS redirect; see [docs/HTTPS_DEPLOYMENT.md](docs/HTTPS_DEPLOYMENT.md).
+
+As of August 2, 2026, the rebuilt site is published and GitHub Pages certificate provisioning is pending. The deployment record includes the observed DNS, redirect, and HTTPS checks.
