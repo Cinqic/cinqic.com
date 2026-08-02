@@ -25,7 +25,7 @@ def main() -> int:
         if not path.is_file(): return fail(f"missing {path.relative_to(ROOT)}")
     if (ROOT / "CNAME").read_text(encoding="utf-8").strip() != "cinqic.com": return fail("CNAME must be cinqic.com")
     all_text = "\n".join(path.read_text(encoding="utf-8") for path in PAGES)
-    banned = ["href=\"#\"", "Try now", "Download Juniper", "Founded August 27, 2026", "Google Fonts"]
+    banned = ["href=\"#\"", "Try now", "Download Juniper", "Founded August 27, 2026", "Google Fonts", "LAG", "Localized AI Generation", "Juniper-LAG"]
     for text in banned:
         if text in all_text: return fail(f"forbidden or inaccurate copy found: {text}")
     for page in PAGES:
@@ -38,9 +38,12 @@ def main() -> int:
             target = ROOT / link.lstrip("/")
             if link.endswith("/"): target /= "index.html"
             if not target.is_file(): return fail(f"broken local asset/link {link} in {page.relative_to(ROOT)}")
-    if "publicLaunchDate:\"2026-08-27\"" not in (ROOT / "assets/js/company.js").read_text(encoding="utf-8"):
+    config = (ROOT / "assets/js/company.js").read_text(encoding="utf-8")
+    if "publicLaunchDate:\"2026-08-27\"" not in config:
         return fail("central launch date missing")
-    print(f"PASS: checked {len(PAGES)} pages, {len(REQUIRED)} shared files, metadata, links, CNAME, and claim guardrails.")
+    if "releaseReady" not in config or "launchState:\"pre-launch\"" not in config:
+        return fail("safe central launch-state guard missing")
+    print(f"PASS: checked {len(PAGES)} pages, {len(REQUIRED)} shared files, metadata, links, CNAME, release guardrails, and abandoned public terminology.")
     return 0
 
 if __name__ == "__main__": sys.exit(main())

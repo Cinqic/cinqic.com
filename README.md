@@ -1,31 +1,21 @@
-# Cinqic.com
+# Cinqic.com — Juniper Baby 1
 
-The static company website for Cinqic, hosted by GitHub Pages at `cinqic.com`. It presents Cinqic and the planned Juniper product without implying public availability.
+The official pre-launch website for Juniper Baby 1 by Cinqic: a lightweight, local-first AI assistant in development. GitHub Pages serves the static repository at `cinqic.com`.
 
-## Stack and requirements
+## Stack and commands
 
-Plain HTML, token-based CSS, and minimal vanilla JavaScript. There are no package dependencies or build dependencies. Python 3 is only used for local verification and preview commands.
-
-## Commands
+The site uses plain HTML, token-based CSS, and minimal vanilla JavaScript. No dependency install or build step is required.
 
 ```powershell
 python scripts/verify_site.py
+node scripts/test_launch_state.js
 python -m http.server 8000 --directory .
 ```
 
-Open `http://localhost:8000`. GitHub Pages serves the repository root directly; there is no separate build artifact.
+## Editing and release state
 
-## Editing
-
-- `assets/js/company.js` is the centralized source for the launch date, mission, vision, and product statuses.
-- `assets/css/site.css` contains the design tokens and shared layout system.
-- Route content lives in `index.html`, `juniper/`, `independent-ai/`, `about/`, `transparency/`, `privacy/`, and `terms/`.
-- `assets/img/` contains the local social-preview asset. Replace it only with an approved brand asset.
+`assets/js/company.js` is the central configuration for company launch wording and Juniper release data. It defaults to explicit `pre-launch`; complete, valid HTTPS release URLs are required before launch state can activate. Content routes are root, `juniper/`, `independent-ai/`, `about/`, `transparency/`, `privacy/`, and `terms/`. The design system is in `assets/css/site.css` and the social preview asset is local under `assets/img/`.
 
 ## Deployment
 
-GitHub Pages is configured to serve `main` from the repository root. `CNAME` must remain `cinqic.com`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) and [docs/LAUNCH_CHECKLIST.md](docs/LAUNCH_CHECKLIST.md) before publishing.
-
-## Current status
-
-The site is launch-preparation material. Juniper Baby 1 0.8B is in development and is not a public release.
+GitHub Pages serves `main` from the repository root. Keep `CNAME` exactly `cinqic.com`. See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md), [docs/JUNIPER_LAUNCH.md](docs/JUNIPER_LAUNCH.md), and [docs/LAUNCH_CHECKLIST.md](docs/LAUNCH_CHECKLIST.md) before publishing.

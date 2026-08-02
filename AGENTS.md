@@ -1,9 +1,7 @@
 # Cinqic website instructions
 
-Keep the site static, lightweight, accessible, and privacy-respecting. Use the dark black/white/gray system with lime (`#76b900`) only as a restrained accent. Do not add external fonts, tracking, ads, cookies, fake contact details, social links, testimonials, users, metrics, or product availability claims.
+Keep the site static, lightweight, accessible, private by default, and focused on **Juniper Baby 1**. LAG and every expansion of that abandoned name are prohibited: do not reintroduce them in content, code, assets, metadata, tests, documentation, or routes.
 
-Juniper Baby 1 0.8B is **in development**, not released. LAG means Localized AI Generation and is Cinqic’s local-AI research and software foundation; do not call it an independently trained model without evidence. Cinqic Accounts and Cinqic Cloud are planned concepts.
+`assets/js/company.js` is the single source for company launch state and Juniper release data. The owner must set `release.launchState` to `launched` only when every release field and HTTPS URL is verified. Release actions require valid data; never create fake downloads, metrics, version numbers, users, testimonials, or benchmarks. Company launch date and Juniper release date are separate facts.
 
-Update company facts and the launch wording in `assets/js/company.js`; preserve the required Juniper transparency statement on `/transparency/`. Use semantic HTML, visible focus styles, keyboard-accessible interactions, and reduced-motion support. Do not add a fake chat backend or fake Juniper routes.
-
-Run `python scripts/verify_site.py` after changes. Keep `CNAME` as `cinqic.com`; never commit credentials. Read `docs/CONTENT_GUIDE.md` and `docs/DEPLOYMENT.md` before editing copy or deployment files.
+Use semantic HTML, visible focus styles, keyboard-accessible interactions, and reduced-motion support. Do not add trackers, ads, external fonts, fake contact/social links, cookies, or secrets. Preserve foundation-model attribution in any future release material. Run `python scripts/verify_site.py` and `node scripts/test_launch_state.js` after changes.

@@ -1,13 +1,12 @@
 # Launch checklist
 
-- [ ] Owner reviews all company copy and product statuses.
-- [ ] Legal review approves Privacy and Terms.
-- [ ] Approved Cinqic/Juniper logo replaces text-only provisional branding, if available.
-- [ ] Test keyboard navigation, mobile menu, reduced motion, and screen-reader labels.
-- [ ] Verify titles, descriptions, canonical URLs, sitemap, robots, favicon, and social card.
-- [ ] Confirm no tracking, external fonts, secrets, or placeholder links.
-- [ ] Confirm GitHub Pages custom domain is `cinqic.com`, DNS is correct, and HTTPS is enforced after certificate issuance.
-- [ ] Check root and direct route navigation after deployment, including the 404 page.
-- [ ] Review performance on mobile and desktop.
-- [ ] Before or on August 27, 2026, update the central launch-date wording in `assets/js/company.js` and review all historical language.
-- [ ] Before releasing Juniper, publish the promised technical, attribution, licensing, evaluation, limitation, privacy, and system-requirement material.
+- [ ] Repository-wide search confirms LAG and all expansions are absent.
+- [ ] Verify Juniper Baby 1 status and company-date language.
+- [ ] Verify version, release date, download URLs, checksums, license, attribution, model card, evaluation, limitations, and system requirements.
+- [ ] Verify no release action appears while release data is incomplete.
+- [ ] Verify social preview, metadata, sitemap, robots, and favicon.
+- [ ] Verify mobile layouts, keyboard navigation, focus, reduced motion, accessibility, and no console errors.
+- [ ] Verify no trackers, external fonts, cookies, secrets, or fake claims.
+- [ ] Verify GitHub Pages HTTPS and `www` to apex redirect.
+- [ ] Obtain owner and professional legal review for Privacy and Terms.
+- [ ] Keep a known-good commit for rollback and verify the rollback procedure.

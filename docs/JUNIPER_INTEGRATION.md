@@ -1,5 +1,5 @@
 # Future Juniper integration
 
-The marketing route `/juniper/` is deliberately separate from any future product application. Introduce a real application only when ready under `/juniper/chat`, with separate routes for downloads, documentation, models, and releases. Do not create those routes until they work.
+Keep the marketing route `/juniper/` separate from a future application. Add real product routes only when implemented: `/juniper/download`, `/juniper/docs`, `/juniper/releases`, `/juniper/models`, and `/juniper/chat`.
 
-The app boundary should represent local and cloud providers explicitly, keep authentication optional where product requirements permit, and show streaming state only for actual streaming responses. Any future model metadata (model name, local/remote state, tokens, generation time), downloadable models, model cards, licenses, and cloud disclosures should be sourced from real release data and link to `/transparency/`. A real API must not be simulated on the marketing site.
+The future app should make local and remote providers explicit, keep authentication optional where product requirements permit, and show streaming or generation metadata only when it is real. Connect model cards, licenses, checksums, evaluation material, and cloud disclosures to `/transparency/`. Never simulate a chat backend or unreleased download flow on the marketing site.
