@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[ROOT/"index.html",ROOT/"privacy/index.html",ROOT/"404.html"]
+PAGES=[ROOT/"index.html",ROOT/"privacy/index.html",ROOT/"calculator/index.html",ROOT/"404.html"]
 REQUIRED=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js",ROOT/"assets/img/juniper-social.png"]
 class Links(HTMLParser):
  def __init__(self):super().__init__();self.links=[]
@@ -28,7 +28,9 @@ def main():
   parser=Links();parser.feed(text)
   for link in parser.links:
    if link.startswith(("https://","mailto:","#")):continue
-   target=ROOT/link.lstrip("/");target=target/"index.html" if link.endswith("/") else target
+   path=link.split("#",1)[0]
+   if not path or path=="/":continue
+   target=ROOT/path.lstrip("/");target=target/"index.html" if path.endswith("/") else target
    if not target.is_file():return fail("broken internal link "+link)
  print("PASS: pages, assets, HTTPS canonicals, metadata, links, and obsolete-content guardrails.")
  return 0
