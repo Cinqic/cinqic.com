@@ -9,12 +9,28 @@ import sys
 import urllib.error
 import urllib.request
 
+WINDOWS_TAG = "v1.0.1"
+ANDROID_TAG = "android-v1.0.0"
+
+# Pinned to specific release tags, not /releases/latest/..., so publishing
+# one platform's release can never break the other platform's download
+# links (GitHub's "latest" always points at whichever tag was published
+# most recently, regardless of which platform it's for).
 RELEASE_URLS = [
-    "https://github.com/Cinqic/Cinqic-Calculator/releases/latest/download/Cinqic-Calculator-Windows-x64-Setup.exe",
-    "https://github.com/Cinqic/Cinqic-Calculator/releases/latest/download/Cinqic-Calculator-Windows-x64-Portable.zip",
-    "https://github.com/Cinqic/Cinqic-Calculator/releases/latest/download/SHA256SUMS.txt",
-    "https://github.com/Cinqic/Cinqic-Calculator/releases/latest",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/Cinqic-Calculator-Windows-x64-Setup.exe",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/Cinqic-Calculator-Windows-x64-Portable.zip",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/SHA256SUMS.txt",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{WINDOWS_TAG}",
     "https://github.com/Cinqic/Cinqic-Calculator",
+]
+
+# Checked only if present in ANDROID_RELEASE_URLS at call time (see main());
+# kept as a separate, optional list so this script still passes before the
+# Android release exists.
+ANDROID_RELEASE_URLS = [
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{ANDROID_TAG}/Cinqic-Calculator-Android.apk",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{ANDROID_TAG}/SHA256SUMS-Android.txt",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{ANDROID_TAG}",
 ]
 
 
@@ -30,8 +46,12 @@ def check_url(url: str) -> tuple[bool, str]:
 
 
 def main():
+    urls = list(RELEASE_URLS)
+    if "--include-android" in sys.argv:
+        urls += ANDROID_RELEASE_URLS
+
     failures = []
-    for url in RELEASE_URLS:
+    for url in urls:
         ok, detail = check_url(url)
         status = "OK" if ok else "FAIL"
         print(f"{status}  {detail:<20}  {url}")
