@@ -1,6 +1,6 @@
 # Cinqic.com
 
-The official static website for Cinqic: open-source software and local-first artificial intelligence. It introduces Juniper, Cinqic’s future assistant, honestly as in development.
+The official static website for Cinqic: open-source software and research projects. It introduces Juniper Math 1, Cinqic’s approximately 5M-parameter mathematical reasoning and tool-use research model, honestly as in development.
 
 ## Stack and commands
 

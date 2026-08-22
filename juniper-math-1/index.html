@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Juniper Math 1 is Cinqic's approximately 5M-parameter mathematical reasoning and tool-use research model, designed around deterministic computation, verification, and truthful uncertainty handling.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://cinqic.com/juniper-math-1/">
+  <meta property="og:title" content="Juniper Math 1 | Cinqic">
+  <meta property="og:description" content="A purpose-built mathematical reasoning and tool-use small language model from Cinqic. No trained model or calculator integration exists yet.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cinqic.com/juniper-math-1/">
+  <meta property="og:image" content="https://cinqic.com/assets/img/juniper-math-social.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Juniper Math 1 | Cinqic">
+  <meta name="twitter:description" content="Cinqic's approximately 5M-parameter mathematical reasoning and tool-use research model.">
+  <meta name="twitter:image" content="https://cinqic.com/assets/img/juniper-math-social.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <title>Juniper Math 1 | Cinqic</title>
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/" aria-label="Cinqic home">Cinqic</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="site-nav">
+          <li><a href="/juniper-math-1/" aria-current="page">Juniper Math 1</a></li>
+          <li><a href="/calculator/">Calculator</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-copy" data-reveal>
+        <p class="eyebrow">Cinqic / Juniper research</p>
+        <h1 id="hero-title">Juniper Math 1</h1>
+        <p class="lede">A purpose-built mathematical reasoning and tool-use small language model from Cinqic.</p>
+        <p class="hero-status"><span class="status-dot" aria-hidden="true"></span> Phase 1 — Architecture complete &middot; Phase 2 — Math Tokenizer authorized, not started</p>
+        <p class="launch-note">Planned launch: August 27, 2026.</p>
+        <div class="button-row">
+          <a class="button primary" href="https://github.com/Cinqic/juniper-math-1" rel="noopener noreferrer">Open the canonical repository <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#architecture">View architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">01 &mdash; Current status</p><h2 id="status-title">Designed, implemented, and validated at the architecture layer.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>The official Juniper Math 1 repository reports that Phase 0 Foundation and Recovery and Phase 1 Architecture are complete. The frozen decoder-only Transformer has exactly 5,004,032 trainable parameters, verified programmatically. No model is trained yet, and no tokenizer, real dataset, or Cinqic Calculator integration exists yet.</p>
+          <p class="detail-note">The launch date above is the existing Cinqic project date carried forward during this migration; it is not evidence that a release is ready.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="question-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">02 &mdash; Research question</p>
+        <h2 id="question-title">How far can a highly specialized ~5M-parameter model go?</h2>
+        <p>How capable, reliable, efficient, and truthfully calibrated can a purpose-built mathematical language model become at understanding natural-language math problems, decomposing them into verifiable operations, selecting deterministic mathematical tools, detecting ambiguity and unsupported requests, verifying results, and producing accurate answers?</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="reasoning-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">03 &mdash; Tool-first reasoning</p><h2 id="reasoning-title">The model should not guess what a tool can verify.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Juniper Math 1 is intended to understand a request, reason about its structure, route approved deterministic operations when appropriate, interpret the result, verify it, and communicate the answer. Cinqic Calculator is the intended deterministic execution backend.</p>
+          <ol class="tool-flow">
+            <li><strong>Understand</strong><span>Interpret the mathematical request and its constraints.</span></li>
+            <li><strong>Reason</strong><span>Decompose the problem into useful operations.</span></li>
+            <li><strong>Route</strong><span>Generate a structured request for a tool when appropriate.</span></li>
+            <li><strong>Verify</strong><span>Check the result before answering, or state uncertainty.</span></li>
+          </ol>
+          <p class="detail-note">The planned initial tool surface includes <code>calculator.evaluate</code>, <code>calculator.convert</code>, and <code>calculator.finance</code>. These integrations are not production-ready or implemented yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section development" id="architecture" aria-labelledby="architecture-title">
+      <div class="shell development-grid">
+        <div class="development-intro" data-reveal>
+          <p class="section-index">04 &mdash; Frozen architecture</p>
+          <h2 id="architecture-title">Small by design. Specific by purpose.</h2>
+          <p class="section-lede">5,004,032 parameters</p>
+          <p>The initial architecture is a decoder-only causal Transformer implemented in Python with PyTorch and CUDA support. The exact parameter count is a repository-verified architecture result, not a claim about mathematical performance.</p>
+          <div class="system-row"><strong>Linux</strong><i></i><span>Ryzen 7 5700G</span><i></i><span>RTX 2060 6GB</span><i></i><span>16GB RAM</span></div>
+        </div>
+        <dl class="spec-panel" data-reveal aria-label="Juniper Math 1 architecture specifications">
+          <div><dt>Model type</dt><dd>Decoder-only causal Transformer</dd></div>
+          <div><dt>d_model / layers</dt><dd>256 / 5</dd></div>
+          <div><dt>Query / KV heads</dt><dd>4 / 4</dd></div>
+          <div><dt>Head dimension</dt><dd>64</dd></div>
+          <div><dt>Feed-forward</dt><dd>SwiGLU, d_ff 688</dd></div>
+          <div><dt>Normalization</dt><dd>RMSNorm, Pre-Norm</dd></div>
+          <div><dt>Position encoding</dt><dd>RoPE, theta 10,000</dd></div>
+          <div><dt>Vocabulary / context</dt><dd>4,096 tokens / 1,024 tokens</dd></div>
+          <div><dt>Biases / dropout</dt><dd>None / 0.0</dd></div>
+          <div><dt>Embeddings</dt><dd>Tied input/output embeddings</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="roadmap-title">
+      <div class="shell section-heading" data-reveal>
+        <p class="section-index">05 &mdash; Development roadmap</p>
+        <h2 id="roadmap-title">Evaluation before expansion.</h2>
+        <p>Statuses below reflect the current official repository record. A phase is not marked complete merely because it is part of the plan.</p>
+      </div>
+      <ol class="shell phase-list" data-reveal>
+        <li><span>Phase 0</span><strong>Foundation and Recovery</strong><em>Complete</em></li>
+        <li><span>Phase 1</span><strong>Architecture</strong><em>Complete</em></li>
+        <li><span>Phase 2</span><strong>Math Tokenizer</strong><em>Authorized — not started</em></li>
+        <li><span>Phase 3</span><strong>Cinqic Calculator Tool Runtime</strong><em>Not started</em></li>
+        <li><span>Phase 4</span><strong>Dataset and Evaluation Freeze</strong><em>Not started</em></li>
+        <li><span>Phase 5</span><strong>Smoke Pretraining</strong><em>Not started</em></li>
+        <li><span>Phase 6</span><strong>Pilot Pretraining</strong><em>Not started</em></li>
+        <li><span>Phase 7</span><strong>Full Base Pretraining</strong><em>Not started</em></li>
+        <li><span>Phase 8</span><strong>Mathematical Instruction and Tool Training</strong><em>Not started</em></li>
+        <li><span>Phase 9</span><strong>Truthfulness, Calibration, and Mathematical Refinement</strong><em>Not started</em></li>
+        <li><span>Phase 10</span><strong>Integration, Evaluation, and Release</strong><em>Not started</em></li>
+      </ol>
+    </section>
+
+    <section class="section" aria-labelledby="scope-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">06 &mdash; Scope and limits</p><h2 id="scope-title">Narrow scope is part of the design.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Initial intended areas include arithmetic, percentages, ratios, proportions, scientific calculations, scientific notation, basic algebra, word problems, unit conversions, financial mathematics, estimation, interpretation, tool selection, verification, ambiguity detection, and unsupported-request handling.</p>
+          <p>Advanced symbolic algebra, calculus, formal theorem proving, matrices, arbitrary scientific computation, and other advanced mathematics are not advertised as reliable capabilities without later repository evidence and evaluation results.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="repro-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">07 &mdash; Reproducibility</p>
+        <h2 id="repro-title">GitHub is the canonical project record.</h2>
+        <p>Engineering decisions, tests, phase approvals, manifests, and documentation are preserved in the official repository. Local storage is disposable; important large artifacts can use manifests, hashes, build scripts, Git LFS, or release assets as the project evolves. <a href="https://github.com/Cinqic/juniper-math-1" rel="noopener noreferrer">View Juniper Math 1 on GitHub&nbsp;↗</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p class="footer-wordmark">Cinqic</p>
+      <p>Juniper Math 1<br>Mathematical reasoning and tool-use research</p>
+      <p><a href="/">Cinqic</a><br><a href="/calculator/">Calculator</a><br><a href="/privacy/">Privacy</a></p>
+      <p><a href="https://github.com/Cinqic/juniper-math-1" rel="noopener noreferrer">Canonical GitHub repository</a></p>
+    </div>
+  </footer>
+  <script src="/assets/js/company.js"></script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
