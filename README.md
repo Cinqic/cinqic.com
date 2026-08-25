@@ -1,6 +1,6 @@
 # Cinqic.com
 
-The official static website for Cinqic: open-source software and research projects. It introduces Juniper Math 1, Cinqic’s approximately 5M-parameter mathematical reasoning and tool-use research model, honestly as in development.
+The official static website for Cinqic: open-source software and research projects. The homepage introduces Cinqic as a company, with dedicated pages for Juniper Auto, Cinqic's open sparse Mixture-of-Experts research project, and Cinqic Calculator, its private offline calculator.
 
 ## Stack and commands
 
@@ -21,7 +21,7 @@ python scripts/verify_release_links.py
 
 ## Maintenance
 
-Company copy and the planned founding-date state live in `assets/js/company.js`. The single-page public content is `index.html`; `privacy/index.html` describes the actual informational site; `calculator/index.html` is the Cinqic Calculator product page. Shared design tokens and responsive styling are in `assets/css/site.css`.
+Company copy and the planned founding-date state live in `assets/js/company.js`. `index.html` is the Cinqic company homepage; `juniper-auto/index.html` is the dedicated Juniper Auto research page; `calculator/index.html` is the Cinqic Calculator product page; `privacy/index.html` describes the informational site. Shared design tokens and responsive styling are in `assets/css/site.css`.
 
 ## Deployment and HTTPS
 

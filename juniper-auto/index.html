@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Juniper Auto is Cinqic's open, consumer-scale research project exploring whether one approximately 150M-parameter sparse Mixture-of-Experts language model can become a capable, local, customizable autonomous intelligence system.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://cinqic.com/juniper-auto/">
+  <meta property="og:title" content="Juniper Auto | Cinqic">
+  <meta property="og:description" content="One small, open, sparse Mixture-of-Experts language model. Phase 0 research foundation approved; no model has been trained yet. Planned launch: October 1, 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://cinqic.com/juniper-auto/">
+  <meta property="og:image" content="https://cinqic.com/assets/img/juniper-auto-social.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Juniper Auto | Cinqic">
+  <meta name="twitter:description" content="Cinqic's open, consumer-scale sparse Mixture-of-Experts research project.">
+  <meta name="twitter:image" content="https://cinqic.com/assets/img/juniper-auto-social.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <title>Juniper Auto | Cinqic</title>
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/" aria-label="Cinqic home">Cinqic</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="site-nav">
+          <li><a href="/juniper-auto/" aria-current="page">Juniper Auto</a></li>
+          <li><a href="/calculator/">Calculator</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-copy" data-reveal>
+        <p class="eyebrow">Cinqic / Juniper research</p>
+        <h1 id="hero-title">Juniper Auto</h1>
+        <p class="lede">One small, open, consumer-scale sparse Mixture-of-Experts language model &mdash; intended to converge many general and autonomous capabilities into one model, not a coordinated collection of specialists.</p>
+        <p class="hero-status"><span class="status-dot" aria-hidden="true"></span> Phase 0 research foundation independently reviewed and approved, with documented accepted limitations</p>
+        <p class="launch-note">Planned launch: October 1, 2026.</p>
+        <div class="button-row">
+          <a class="button primary" href="https://github.com/Cinqic/Juniper-Auto" rel="noopener noreferrer">Open the canonical repository <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#architecture">View architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">01 &mdash; Current status</p><h2 id="status-title">Foundation engineering, not model training.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Phase 0 established the research charter and governance rules, the frozen <code>ja150m-v0.1</code> and <code>ja150m-v0.1-dense</code> architecture configurations (schema-validated and independently parameter-counted), a deterministic seed framework, structured logging, an ADR system, an experiment registry, engineering time accounting, a frozen-artifact manifest with SHA-256 hashes, repository validation, CI, and a tested clean-machine recovery procedure.</p>
+          <p>Phase 0 also built <strong>FoundationProbe</strong>, a minimal tensor-pipeline smoke test used only to prove imports, config loading, seeding, and reproducibility work end to end. <strong>FoundationProbe is not the Juniper Auto model.</strong></p>
+          <p class="detail-note">No tokenizer, training dataset, trained checkpoint, inference runtime, persistent memory system, or tool-use system currently exists. Model implementation begins in a later phase.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="question-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">02 &mdash; Research question</p>
+        <h2 id="question-title">Testing the limits of small autonomous intelligence.</h2>
+        <p>How capable, efficient, autonomous, persistent, adaptable, reliable, and meaningfully self-improving can one approximately 150-million-parameter open sparse Mixture-of-Experts language model become while remaining practical on consumer hardware and genuinely customizable? The project is not merely building another chatbot &mdash; it is asking whether a single small model can learn to serve many roles at once.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="one-model-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">03 &mdash; One model</p><h2 id="one-model-title">One cognitive model. Internal specialization through learned routing.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Juniper Auto is not intended to permanently consist of separate math, coding, research, productivity, and creativity language models coordinated by an orchestrator. It is designed to explore whether one small sparse Mixture-of-Experts model can learn, through its own routing, to specialize internal computation appropriately across many domains &mdash; language, coding, mathematics, research reasoning, and beyond &mdash; inside a single set of weights.</p>
+          <p class="detail-note">This one-model philosophy is foundational to the project: no permanent collection of separate specialist models, coordinated by an orchestrator.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section development" id="architecture" aria-labelledby="architecture-title">
+      <div class="shell development-grid">
+        <div class="development-intro" data-reveal>
+          <p class="section-index">04 &mdash; Frozen architecture</p>
+          <h2 id="architecture-title">Target architecture. Not yet trained.</h2>
+          <p class="section-lede">150,031,360 total parameters</p>
+          <p>The frozen <code>ja150m-v0.1</code> configuration is a decoder-only causal sparse Mixture-of-Experts Transformer. Parameter counts are independently derived by code and asserted by tests on every run &mdash; not hand-transcribed. No model built to this configuration has been trained yet.</p>
+        </div>
+        <dl class="spec-panel" data-reveal aria-label="Juniper Auto architecture specifications">
+          <div><dt>Total / standard active parameters</dt><dd>150,031,360 / 79,252,480</dd></div>
+          <div><dt>d_model / layers</dt><dd>512 / 20 (5 dense-anchor + 15 MoE)</dd></div>
+          <div><dt>Attention</dt><dd>Causal GQA, 8 query / 2 KV heads, head dim 64, QK norm</dd></div>
+          <div><dt>Context</dt><dd>4,096 tokens (16,384-token target, not currently advertised)</dd></div>
+          <div><dt>Dense FFN</dt><dd>SwiGLU, dimension 1,536</dd></div>
+          <div><dt>Experts</dt><dd>8 routed + 1 shared always-active; top-2 routed per token; dropless token-choice routing</dd></div>
+          <div><dt>Expert FFN</dt><dd>SwiGLU, dimension 512</dd></div>
+          <div><dt>Normalization / position</dt><dd>RMSNorm (Pre-Norm) / RoPE, theta 100,000</dd></div>
+          <div><dt>Vocabulary target</dt><dd>36,864, tied input/output embeddings</dd></div>
+          <div><dt>Dropout / precision</dt><dd>0.0 / FP16 training with FP32 master parameters, FP16 default inference target</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="dense-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">05 &mdash; Sparse vs. dense research</p>
+        <h2 id="dense-title">Evidence, not architectural fashion.</h2>
+        <p>Juniper Auto includes a mandatory dense research control, <code>ja150m-v0.1-dense</code> (79,191,040 parameters, all-dense, no sparsity), to determine whether the sparse MoE architecture&rsquo;s added complexity actually earns its keep. Active-parameter counts are not assumed to equal measured FLOPs, latency, or runtime cost &mdash; the project distinguishes parameter accounting from measured compute efficiency, and no comparison results exist yet.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="targets-title">
+      <div class="shell section-heading" data-reveal>
+        <p class="section-index">06 &mdash; Capability targets</p>
+        <h2 id="targets-title">Research targets, not demonstrated capabilities.</h2>
+        <p>Eventual research targets include competence across the areas below, converged into one model through learned routing. None of these are currently demonstrated &mdash; no model has been trained.</p>
+      </div>
+      <div class="shell principles-grid" data-reveal>
+        <article><span>01</span><h3>Language &amp; coding</h3><p>Natural-language instruction following and coding, as a foundation for everything else.</p></article>
+        <article><span>02</span><h3>Math &amp; research</h3><p>Mathematics, research-oriented reasoning, and structured information synthesis.</p></article>
+        <article><span>03</span><h3>Productivity &amp; creativity</h3><p>Practical productivity assistance alongside open-ended creative work.</p></article>
+        <article><span>04</span><h3>Planning &amp; tools</h3><p>Planning, tool selection and use, tool-result interpretation, and verification.</p></article>
+        <article><span>05</span><h3>Recovery</h3><p>Failure recovery and honest interpretation of its own state.</p></article>
+        <article><span>06</span><h3>Memory &amp; autonomy</h3><p>Memory-use decisions and bounded autonomous-control decisions.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="local-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">07 &mdash; Local and consumer scale</p><h2 id="local-title">Built to run on hardware people actually own.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Juniper Auto is deliberately constrained around consumer hardware. The current baseline development machine, <strong>FLOWBOX</strong>, is a Ryzen 7 5700G, RTX 2060 (6GB VRAM), 16GB RAM, 256GB NVMe, and 500GB HDD &mdash; an engineering baseline, not a promise that every future training run happens exclusively on this one machine.</p>
+          <p>The important public principle: Juniper Auto must not quietly evolve into something that requires datacenter hardware merely to perform core inference. The project is also local-first &mdash; core future goals include useful local inference, conversation state, memory, file access, and compatible tools. Cloud services may eventually accelerate training or evaluation, but are not intended to become a mandatory dependency for basic model use.</p>
+          <div class="system-row"><strong>FLOWBOX</strong><i></i><span>Ryzen 7 5700G</span><i></i><span>RTX 2060 6GB</span><i></i><span>16GB RAM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="autonomy-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">08 &mdash; Autonomy</p>
+        <h2 id="autonomy-title">A future runtime target, not a current capability.</h2>
+        <p>The eventual Juniper Auto runtime is intended to explore objective management, persistent state and memory, tool permissions and a tool registry, sandboxed execution, scheduling, event handling, resource limits, process supervision, checkpoint/resume, action logging, interruption, rollback, and iterative reason &rarr; act &rarr; observe &rarr; verify &rarr; revise &rarr; continue behavior. The project is investigating whether a small language model can eventually serve as assistant, planner, tool user, verifier, critic, researcher, programmer, and autonomous controller without relying on permanent specialist language models. <strong>None of this runtime is implemented yet.</strong></p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="open-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">09 &mdash; Open and customizable</p><h2 id="open-title">Inspectable, modifiable, forkable, retrainable.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>Juniper Auto is intended to remain inspectable, modifiable, forkable, retrainable, and customizable. The repository currently ships an MIT license. Whether that license also applies to the final trained weights, tokenizer, and training datasets is an open governance matter that has not yet been decided &mdash; this page does not claim a final licensing decision has been made for those future artifacts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="nongoals-title">
+      <div class="shell split-layout">
+        <div data-reveal><p class="section-index">Explicit v0.1 non-goals</p><h2 id="nongoals-title">Deliberately bounded scope.</h2></div>
+        <div class="intro-copy" data-reveal>
+          <p>v0.1 explicitly excludes native image encoding, native audio encoding, native speech synthesis, native video understanding, architectural recurrence, adaptive neural halting, hierarchical MoE, dynamic expert creation during normal inference, unrestricted self-modification, automatic promotion of self-generated checkpoints, and permanent specialist-model collections. External perception or multimodal capabilities may eventually be provided through external tools and adapters rather than by consuming the 150M language-model parameter budget. Juniper Auto is not currently multimodal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="choice-section" aria-labelledby="repro-title">
+      <div class="shell" data-reveal>
+        <p class="section-index">10 &mdash; Canonical research record</p>
+        <h2 id="repro-title">GitHub is the canonical project record.</h2>
+        <p>Architecture decisions, phase reports, validation, experiments, and future results are tracked in the official repository, not on this page. Development started August 25, 2026 and this page was last updated August 25, 2026. <a href="https://github.com/Cinqic/Juniper-Auto" rel="noopener noreferrer">Follow Juniper Auto development on GitHub&nbsp;↗</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p class="footer-wordmark">Cinqic</p>
+      <p>Juniper Auto<br>Open sparse Mixture-of-Experts research</p>
+      <p><a href="/">Cinqic</a><br><a href="/calculator/">Calculator</a><br><a href="/privacy/">Privacy</a></p>
+      <p><a href="https://github.com/Cinqic/Juniper-Auto" rel="noopener noreferrer">Canonical GitHub repository</a></p>
+    </div>
+  </footer>
+  <script src="/assets/js/company.js"></script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
