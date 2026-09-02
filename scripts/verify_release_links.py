@@ -5,9 +5,11 @@ should always be checkable offline, but these checks depend on GitHub being
 reachable and should not block normal local development.
 """
 
+import re
 import sys
 import urllib.error
 import urllib.request
+from pathlib import Path
 
 WINDOWS_TAG = "v1.0.1"
 ANDROID_TAG = "android-v1.0.0"
@@ -45,10 +47,30 @@ def check_url(url: str) -> tuple[bool, str]:
         return False, str(exc.reason)
 
 
+SITE_ROOT = Path(__file__).resolve().parent.parent
+
+# Any GitHub release URL the site actually links to. Discovered from the HTML
+# rather than hardcoded, so a new product page cannot ship a dead release link
+# without this check noticing it.
+RELEASE_LINK_PATTERN = re.compile(
+    r"https://github\.com/Cinqic/[^\"'\s]*/releases(?:/[^\"'\s]*)?"
+)
+
+
+def discover_release_links() -> list[str]:
+    found = set()
+    for page in SITE_ROOT.rglob("*.html"):
+        found.update(RELEASE_LINK_PATTERN.findall(page.read_text(encoding="utf8")))
+    return sorted(found)
+
+
 def main():
     urls = list(RELEASE_URLS)
     if "--include-android" in sys.argv:
         urls += ANDROID_RELEASE_URLS
+    for url in discover_release_links():
+        if url not in urls:
+            urls.append(url)
 
     failures = []
     for url in urls:
