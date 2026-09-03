@@ -1,6 +1,6 @@
 # Cinqic.com
 
-The official static website for Cinqic: open-source software and research projects. The homepage introduces Cinqic as a company, with dedicated pages for Juniper Auto, Cinqic's open sparse Mixture-of-Experts research project, and Cinqic Calculator, its private offline calculator.
+The official static website for Cinqic: open-source software and research projects. The homepage introduces Cinqic as a company, with dedicated pages for Juniper, Juniper Auto, Cinqic's open sparse Mixture-of-Experts research project, and Cinqic Calculator, its private offline calculator.
 
 ## Stack and commands
 
@@ -21,7 +21,7 @@ python scripts/verify_release_links.py
 
 ## Maintenance
 
-Company copy and the planned founding-date state live in `assets/js/company.js`. `index.html` is the Cinqic company homepage; `juniper-auto/index.html` is the dedicated Juniper Auto research page; `calculator/index.html` is the Cinqic Calculator product page; `privacy/index.html` describes the informational site. Shared design tokens and responsive styling are in `assets/css/site.css`.
+Company copy and the planned founding-date state live in `assets/js/company.js`. `index.html` is the Cinqic company homepage; `juniper/index.html` is the Juniper product page; `juniper-auto/index.html` is the dedicated Juniper Auto research page; `calculator/index.html` is the Cinqic Calculator product page; `privacy/index.html` describes the informational site. Shared design tokens and responsive styling are in `assets/css/site.css`.
 
 ## Deployment and HTTPS
 

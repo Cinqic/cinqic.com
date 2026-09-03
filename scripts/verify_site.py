@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-PAGES=[ROOT/"index.html",ROOT/"juniper-auto/index.html",ROOT/"privacy/index.html",ROOT/"calculator/index.html",ROOT/"404.html"]
+PAGES=[ROOT/"index.html",ROOT/"juniper/index.html",ROOT/"juniper-auto/index.html",ROOT/"privacy/index.html",ROOT/"calculator/index.html",ROOT/"404.html"]
 REQUIRED=[ROOT/"CNAME",ROOT/"robots.txt",ROOT/"sitemap.xml",ROOT/"site.webmanifest",ROOT/"assets/css/site.css",ROOT/"assets/js/company.js",ROOT/"assets/js/site.js",ROOT/"assets/img/juniper-auto-social.svg"]
 class Links(HTMLParser):
  def __init__(self):super().__init__();self.links=[]
@@ -22,6 +22,7 @@ def main():
  for term in forbidden:
   if term.lower() in public.lower():return fail("obsolete or insecure public text: "+term)
  if "Juniper Auto" not in public:return fail("missing Juniper Auto migration")
+ if "Juniper" not in (ROOT/"juniper/index.html").read_text(encoding="utf-8"):return fail("missing Juniper product page")
  if "150,031,360" not in public:return fail("missing verified total parameter target")
  if "79,252,480" not in public:return fail("missing verified active parameter target")
  if "October 1, 2026" not in public:return fail("missing planned launch date")

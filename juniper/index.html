@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Juniper is Cinqic's local-first AI app for choosing, managing, and using personal models on your machine.">
+  <meta name="theme-color" content="#000000">
+  <link rel="canonical" href="https://cinqic.com/juniper/">
+  <meta property="og:title" content="Juniper | Cinqic">
+  <meta property="og:description" content="A local-first AI app for your AI, your models, and your machine.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cinqic.com/juniper/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <title>Juniper | Cinqic</title>
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="wordmark" href="/" aria-label="Cinqic home">Cinqic</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list" id="site-nav">
+          <li><a href="/juniper/" aria-current="page">Juniper</a></li>
+          <li><a href="/juniper-auto/">Juniper Auto</a></li>
+          <li><a href="/calculator/">Calculator</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-hero" aria-labelledby="hero-title">
+      <div class="shell prose">
+        <p class="eyebrow">Cinqic software</p>
+        <h1 id="hero-title">Your AI.<br>Your models.<br>Your machine.</h1>
+        <p>Juniper is a local-first AI app for people who want a thoughtful assistant, visible model controls, and a clear boundary around private data.</p>
+        <p class="hero-status"><span class="status-dot" aria-hidden="true"></span> Desktop release candidate in development</p>
+        <div class="button-row">
+          <a class="button primary" href="https://github.com/Cinqic/Juniper-App" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="/">Back to Cinqic</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="market-title">
+      <div class="shell split-layout">
+        <div data-reveal>
+          <p class="section-index">01 — Local first</p>
+          <h2 id="market-title">Choose a model without becoming a systems administrator.</h2>
+        </div>
+        <div class="intro-copy" data-reveal>
+          <p>Juniper's Models Market detects the device profile, explains which compact models fit, and manages verified downloads and storage. The ordinary desktop path owns its local runtime instead of requiring Ollama or an account.</p>
+          <p class="detail-note">The current catalog focuses on instruction-tuned GGUF models below 1B parameters. Advanced users can still connect compatible external providers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section development" aria-labelledby="privacy-title">
+      <div class="shell development-grid">
+        <div class="development-intro" data-reveal>
+          <p class="section-index">02 — A clear boundary</p>
+          <h2 id="privacy-title">Private by default.</h2>
+          <p class="section-lede">The app should tell you where your prompt goes.</p>
+          <p>Juniper labels on-device, local-network, remote, and unknown routes. It keeps credentials in the desktop operating-system store, makes tool permissions explicit, and does not add telemetry, analytics, or an account system.</p>
+        </div>
+        <dl class="spec-panel" data-reveal aria-label="Juniper product principles">
+          <div><dt>Model lifecycle</dt><dd>Catalogued, resumable, hash-verified, atomic</dd></div>
+          <div><dt>Local runtime</dt><dd>Juniper-owned loopback process on desktop</dd></div>
+          <div><dt>Data boundary</dt><dd>Visible execution location and explicit tools</dd></div>
+          <div><dt>Source</dt><dd><a href="https://github.com/Cinqic/Juniper-App" rel="noopener noreferrer">Open-source on GitHub ↗</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="status-title">
+      <div class="shell prose" data-reveal>
+        <p class="section-index">03 — Status</p>
+        <h2 id="status-title">Built in the open.</h2>
+        <p>Juniper is a prerelease product. The repository contains the implementation, tests, architecture decisions, release workflow, and current limitations. Android shares the app shell and model-management direction; this candidate does not claim a packaged native local inference process on Android yet.</p>
+        <p><a href="https://github.com/Cinqic/Juniper-App/releases" rel="noopener noreferrer">Follow release builds on GitHub ↗</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <p class="footer-wordmark">Cinqic</p>
+      <p>Juniper<br>Local-first AI software</p>
+      <p><a href="/">Cinqic</a><br><a href="/juniper-auto/">Juniper Auto</a><br><a href="/calculator/">Calculator</a><br><a href="/privacy/">Privacy</a></p>
+      <p>Built by Markus Gillyard</p>
+    </div>
+  </footer>
+  <script src="/assets/js/company.js"></script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>
