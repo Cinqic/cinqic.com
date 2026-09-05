@@ -12,7 +12,6 @@ PAGES = [
     ROOT / "apps/index.html",
     ROOT / "notes/index.html",
     ROOT / "research/index.html",
-    ROOT / "juniper-auto/index.html",
     ROOT / "calculator/index.html",
     ROOT / "privacy/index.html",
     ROOT / "404.html",
@@ -27,7 +26,6 @@ REQUIRED = [
     ROOT / "assets/js/company.js",
     ROOT / "assets/js/site.js",
     ROOT / "assets/img/cinqic-social.svg",
-    ROOT / "assets/img/juniper-auto-social.svg",
 ]
 PUBLIC_ROUTES = [
     "/",
@@ -35,7 +33,6 @@ PUBLIC_ROUTES = [
     "/apps/",
     "/notes/",
     "/research/",
-    "/juniper-auto/",
     "/calculator/",
     "/privacy/",
 ]
@@ -45,7 +42,6 @@ CURRENT_MARKERS = {
     "apps/index.html": 'href="/apps/" aria-current="page"',
     "notes/index.html": 'href="/apps/" aria-current="page"',
     "research/index.html": 'href="/research/" aria-current="page"',
-    "juniper-auto/index.html": 'href="/research/" aria-current="page"',
     "calculator/index.html": 'href="/apps/" aria-current="page"',
     "privacy/index.html": 'href="/privacy/" aria-current="page"',
 }
@@ -121,7 +117,14 @@ def main() -> int:
         "19,863,936",
         "juniper-math-social.svg",
     ]
-    for term in forbidden:
+    retired_reference_terms = [
+        " ".join(("Juniper", "Auto")),
+        "-".join(("Juniper", "Auto")),
+        "/" + "-".join(("juniper", "auto")) + "/",
+        "https://github.com/" + "/".join(("Cinqic", "Juniper" + "-" + "Auto")),
+        "".join(("juniper", "Auto")),
+    ]
+    for term in forbidden + retired_reference_terms:
         if term.lower() in public.lower():
             return fail(f"obsolete or insecure public text: {term}")
 
@@ -167,12 +170,7 @@ def main() -> int:
         return fail("Notes page must not advertise an unreleased download")
     if "flagship" not in page_text["index.html"].lower() or 'href="/juniper/"' not in page_text["index.html"]:
         return fail("homepage must keep Juniper represented as the flagship")
-    auto = page_text["juniper-auto/index.html"].lower()
-    for phrase in ["phase 3", "candidate", "no model has been trained", "no autonomy runtime"]:
-        if phrase not in auto:
-            return fail(f"Juniper Auto page missing durable status boundary: {phrase}")
-
-    print("PASS: pages, metadata, navigation, routes, links, sitemap, flagship hierarchy, and status guardrails.")
+    print("PASS: pages, metadata, navigation, routes, links, sitemap, flagship hierarchy, and retired-project reference guardrails.")
     return 0
 
 
