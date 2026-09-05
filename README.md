@@ -1,8 +1,8 @@
 # Cinqic.com
 
 The official static website for Cinqic. The information architecture keeps
-Juniper as the flagship, groups standalone software under Apps, separates
-Juniper Auto under Research, and preserves the existing product routes.
+Juniper as the flagship, groups standalone software under Apps, and keeps the
+current research record separate from product routes.
 
 ## Stack and commands
 
@@ -27,14 +27,13 @@ advertised in the HTML.
   platform limitations.
 - `/apps/` — Juniper, Cinqic Notes, and Cinqic Calculator.
 - `/notes/` — Cinqic Notes direction and honest in-development status.
-- `/research/` — active and completed research overview.
-- `/juniper-auto/` — detailed Juniper Auto research status.
+- `/research/` — current and completed research overview.
 - `/calculator/` — Cinqic Calculator downloads and product details.
 - `/privacy/` — website and product-privacy boundaries.
 
 ## Maintenance
 
-Shared company facts and project metadata live in `assets/js/company.js`.
+Shared company facts and current project metadata live in `assets/js/company.js`.
 Shared navigation behavior lives in `assets/js/site.js`; pages remain authored
 HTML rather than JavaScript-generated content. Shared design tokens and
 responsive styling are in `assets/css/site.css`.

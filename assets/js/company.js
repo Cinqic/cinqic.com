@@ -32,12 +32,6 @@
         androidVersion: "1.0.0",
         repository: "https://github.com/Cinqic/Cinqic-Calculator",
       },
-      juniperAuto: {
-        name: "Juniper Auto",
-        category: "research",
-        status: "Phase 3 candidate pending independent review",
-        repository: "https://github.com/Cinqic/Juniper-Auto",
-      },
       juniperMath1: {
         name: "Juniper Math 1",
         category: "completed research",

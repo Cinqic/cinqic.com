@@ -21,10 +21,9 @@ Keep these distinctions visible:
 `index.html` is the Cinqic overview and keeps Juniper as the flagship.
 `apps/index.html` is the consumer-app catalog. `notes/index.html` describes
 Cinqic Notes while it is in development. `research/index.html` summarizes
-active and completed research. `juniper/index.html`,
-`juniper-auto/index.html`, and `calculator/index.html` hold detailed product
-and project information. `privacy/index.html` describes website and product
-privacy boundaries.
+current and completed research. `juniper/index.html` and
+`calculator/index.html` hold detailed product information.
+`privacy/index.html` describes website and product privacy boundaries.
 
 Shared company facts and project metadata live in `assets/js/company.js`.
 Keep it descriptive and small; do not turn it into a client-side content
@@ -39,12 +38,6 @@ independent, especially for Cinqic Calculator. For Juniper, separate the
 current source candidate from the latest published prerelease. For Notes, do
 not add a version, download, platform, sync, AI, cloud, or collaboration claim
 until the canonical repository and release state support it.
-
-For Juniper Auto, use the current README, phase records, architecture config,
-and frozen-artifact manifest. Keep approved phases, candidate work,
-experiments, future targets, and explicit non-claims separate. Do not add
-launch dates unless the canonical repository explicitly supports them. Keep
-Juniper Math 1 labeled as completed historical research if it is mentioned.
 
 ## Metadata and verification
 
