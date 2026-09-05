@@ -1,4 +1,4 @@
-"""Verify the Cinqic Calculator release links used on the website are live.
+"""Verify the pinned GitHub release links used on the website are live.
 
 This is deliberately separate from verify_site.py: local site structure
 should always be checkable offline, but these checks depend on GitHub being
@@ -24,6 +24,13 @@ RELEASE_URLS = [
     f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/SHA256SUMS.txt",
     f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{WINDOWS_TAG}",
     "https://github.com/Cinqic/Cinqic-Calculator",
+    "https://github.com/Cinqic/Juniper-App/releases/tag/v0.3.0-rc.7",
+    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-windows-x86_64.msi",
+    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-android-universal.apk",
+    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-linux-x86_64.AppImage",
+    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-linux-x86_64.deb",
+    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/SHA256SUMS.txt",
+    "https://github.com/Cinqic/Juniper-App",
 ]
 
 # Checked only if present in ANDROID_RELEASE_URLS at call time (see main());

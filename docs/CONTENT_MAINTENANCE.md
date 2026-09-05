@@ -1,5 +1,64 @@
 # Content maintenance
 
-Edit company facts and launch wording in `assets/js/company.js`. Cinqic officially launched August 2, 2026 (`launchState: "launched"`); do not revert that. Juniper Auto's development started August 25, 2026 and its launch is tracked separately under `juniper.launchDate` / `juniper.launchState`, planned for October 1, 2026 &mdash; keep `juniper.launchState` at `"pre-launch"` until the owner deliberately updates it on or after that date. Update Juniper Auto's development status only from the official `Cinqic/Juniper-Auto` repository, using the frozen `configs/architecture/ja150m-v0.1.yaml` for architecture facts.
+## Source of truth
 
-Keep the homepage focused on Cinqic as a company, with Juniper Auto and Cinqic Calculator introduced concisely and linked to their own pages (`/juniper-auto/`, `/calculator/`) rather than embedded in full. Mark current work as in development, future work as planned or long-term, and do not add availability, performance, privacy, licensing, or open-source claims without evidence. Do not advertise a Cinqic Calculator / Juniper Auto integration unless the Juniper Auto repository confirms an implemented one. Replace `assets/img/cinqic-social.svg` or `assets/img/juniper-auto-social.svg` only with an approved asset and keep their absolute HTTPS metadata URLs accurate.
+GitHub is canonical. Before changing public copy, fetch and inspect the
+current `main` state of the relevant repository, then check its published
+GitHub Releases and downloadable assets. Only merged or otherwise canonical
+remote state may be advertised; do not copy another worker's uncommitted
+implementation into release or availability language.
+
+Keep these distinctions visible:
+
+- current implementation on `main`;
+- development or release-candidate versions;
+- the latest actually published release;
+- future plans and research targets;
+- completed or retired work.
+
+## Site structure
+
+`index.html` is the Cinqic overview and keeps Juniper as the flagship.
+`apps/index.html` is the consumer-app catalog. `notes/index.html` describes
+Cinqic Notes while it is in development. `research/index.html` summarizes
+active and completed research. `juniper/index.html`,
+`juniper-auto/index.html`, and `calculator/index.html` hold detailed product
+and project information. `privacy/index.html` describes website and product
+privacy boundaries.
+
+Shared company facts and project metadata live in `assets/js/company.js`.
+Keep it descriptive and small; do not turn it into a client-side content
+management system or generate page copy from it. Shared menu behavior belongs
+in `assets/js/site.js`.
+
+## Release and product updates
+
+When a release changes, update only the claims and pinned links supported by
+the current GitHub Release. Keep independently versioned platform releases
+independent, especially for Cinqic Calculator. For Juniper, separate the
+current source candidate from the latest published prerelease. For Notes, do
+not add a version, download, platform, sync, AI, cloud, or collaboration claim
+until the canonical repository and release state support it.
+
+For Juniper Auto, use the current README, phase records, architecture config,
+and frozen-artifact manifest. Keep approved phases, candidate work,
+experiments, future targets, and explicit non-claims separate. Do not add
+launch dates unless the canonical repository explicitly supports them. Keep
+Juniper Math 1 labeled as completed historical research if it is mentioned.
+
+## Metadata and verification
+
+Every indexable page needs a title, description, canonical HTTPS URL, Open
+Graph metadata, and Twitter metadata. Update `sitemap.xml` when adding a
+public route. Do not add a route to the sitemap until its `index.html` exists.
+
+Run:
+
+```powershell
+python scripts/verify_site.py
+python scripts/verify_release_links.py --include-android
+```
+
+Also serve the root locally and inspect every public page at desktop and
+narrow mobile widths. Confirm keyboard focus, mobile menu behavior, internal
+links, images, and visible release boundaries before committing.
