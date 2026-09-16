@@ -170,6 +170,13 @@ def main() -> int:
         return fail("Notes page must not advertise an unreleased download")
     if "flagship" not in page_text["index.html"].lower() or 'href="/juniper/"' not in page_text["index.html"]:
         return fail("homepage must keep Juniper represented as the flagship")
+    research = page_text["research/index.html"]
+    if "Current research" not in research or "https://github.com/Cinqic/AAA" not in research:
+        return fail("Research page must present AAA as current research")
+    if "Retired research" not in research or "Juniper Encoder" not in research:
+        return fail("Research page must present Juniper Encoder as retired research")
+    if "Completed research" not in research or "Juniper Math 1" not in research:
+        return fail("Research page must keep Juniper Math 1 as completed research")
     print("PASS: pages, metadata, navigation, routes, links, sitemap, flagship hierarchy, and retired-project reference guardrails.")
     return 0
 
