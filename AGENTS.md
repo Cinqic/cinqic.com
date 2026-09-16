@@ -13,8 +13,10 @@ availability, privacy guarantee, certification, partner, social account, or
 download without current repository or release evidence. Do not advertise
 uncommitted work from another repository.
 
-Juniper Math 1 is completed historical research and must not be presented as
-an active model project.
+AAA is the active research project. Juniper Encoder and Juniper Math 1 are
+retired historical research and must not be presented as active model projects
+or as released models. Retired projects removed from active public surfaces
+stay removed unless explicit new site policy reverses that decision.
 
 Use semantic HTML, keyboard-accessible interactions, visible focus states,
 responsive layouts, and reduced-motion support. Do not add trackers, ads,

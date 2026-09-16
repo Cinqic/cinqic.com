@@ -13,6 +13,8 @@ from pathlib import Path
 
 DESKTOP_TAG = "v1.1.0"
 ANDROID_TAG = "android-v1.1.0"
+JUNIPER_TAG = "v0.3.0-rc.31"
+JUNIPER_VERSION = JUNIPER_TAG.lstrip("v")
 
 # Pinned to specific release tags, not /releases/latest/..., so publishing
 # one platform's release can never break the other platform's download
@@ -26,12 +28,12 @@ RELEASE_URLS = [
     f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{DESKTOP_TAG}/SHA256SUMS.txt",
     f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{DESKTOP_TAG}",
     "https://github.com/Cinqic/Cinqic-Calculator",
-    "https://github.com/Cinqic/Juniper-App/releases/tag/v0.3.0-rc.7",
-    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-windows-x86_64.msi",
-    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-android-universal.apk",
-    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-linux-x86_64.AppImage",
-    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-linux-x86_64.deb",
-    "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/SHA256SUMS.txt",
+    f"https://github.com/Cinqic/Juniper-App/releases/tag/{JUNIPER_TAG}",
+    f"https://github.com/Cinqic/Juniper-App/releases/download/{JUNIPER_TAG}/Juniper-{JUNIPER_VERSION}-windows-x86_64.msi",
+    f"https://github.com/Cinqic/Juniper-App/releases/download/{JUNIPER_TAG}/Juniper-{JUNIPER_VERSION}-android-universal.apk",
+    f"https://github.com/Cinqic/Juniper-App/releases/download/{JUNIPER_TAG}/Juniper-{JUNIPER_VERSION}-linux-x86_64.AppImage",
+    f"https://github.com/Cinqic/Juniper-App/releases/download/{JUNIPER_TAG}/Juniper-{JUNIPER_VERSION}-linux-x86_64.deb",
+    f"https://github.com/Cinqic/Juniper-App/releases/download/{JUNIPER_TAG}/SHA256SUMS.txt",
     "https://github.com/Cinqic/Juniper-App",
 ]
 
