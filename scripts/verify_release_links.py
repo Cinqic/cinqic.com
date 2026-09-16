@@ -11,18 +11,20 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-WINDOWS_TAG = "v1.0.1"
-ANDROID_TAG = "android-v1.0.0"
+DESKTOP_TAG = "v1.1.0"
+ANDROID_TAG = "android-v1.1.0"
 
 # Pinned to specific release tags, not /releases/latest/..., so publishing
 # one platform's release can never break the other platform's download
 # links (GitHub's "latest" always points at whichever tag was published
-# most recently, regardless of which platform it's for).
+# most recently, regardless of which platform it's for). Windows and Linux
+# now ship from one desktop tag, so they share DESKTOP_TAG.
 RELEASE_URLS = [
-    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/Cinqic-Calculator-Windows-x64-Setup.exe",
-    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/Cinqic-Calculator-Windows-x64-Portable.zip",
-    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{WINDOWS_TAG}/SHA256SUMS.txt",
-    f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{WINDOWS_TAG}",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{DESKTOP_TAG}/Cinqic-Calculator-Windows-x64-Setup.exe",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{DESKTOP_TAG}/Cinqic-Calculator-Windows-x64-Portable.zip",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{DESKTOP_TAG}/Cinqic-Calculator-Linux-x86_64.tar.gz",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/download/{DESKTOP_TAG}/SHA256SUMS.txt",
+    f"https://github.com/Cinqic/Cinqic-Calculator/releases/tag/{DESKTOP_TAG}",
     "https://github.com/Cinqic/Cinqic-Calculator",
     "https://github.com/Cinqic/Juniper-App/releases/tag/v0.3.0-rc.7",
     "https://github.com/Cinqic/Juniper-App/releases/download/v0.3.0-rc.7/Juniper-0.3.0-rc.7-windows-x86_64.msi",
