@@ -168,6 +168,11 @@ def main() -> int:
         return fail("Apps page must feature Juniper, Notes, then Calculator in order")
     if "releases/download" in page_text["notes/index.html"] or "releases/tag" in page_text["notes/index.html"]:
         return fail("Notes page must not advertise an unreleased download")
+    for name in ["index.html", "apps/index.html", "notes/index.html"]:
+        if "Development paused" not in page_text[name] or "In development" in page_text[name]:
+            return fail(f"{name} must present Cinqic Notes as development paused")
+    if "retired" in page_text["notes/index.html"].lower().replace("not been retired", ""):
+        return fail("Notes page must not present Cinqic Notes as retired")
     if "flagship" not in page_text["index.html"].lower() or 'href="/juniper/"' not in page_text["index.html"]:
         return fail("homepage must keep Juniper represented as the flagship")
     research = page_text["research/index.html"]
@@ -177,7 +182,7 @@ def main() -> int:
         return fail("Research page must present Juniper Encoder as retired research")
     if "Completed research" not in research or "Juniper Math 1" not in research:
         return fail("Research page must keep Juniper Math 1 as completed research")
-    print("PASS: pages, metadata, navigation, routes, links, sitemap, flagship hierarchy, and retired-project reference guardrails.")
+    print("PASS: pages, metadata, navigation, routes, links, sitemap, flagship hierarchy, paused-project status, and retired-project reference guardrails.")
     return 0
 
 
