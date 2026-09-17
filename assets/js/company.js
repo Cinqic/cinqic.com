@@ -21,7 +21,7 @@
       notes: {
         name: "Cinqic Notes",
         category: "app",
-        status: "In development",
+        status: "Development paused 2026-09-17; not retired, no public release",
         repository: "https://github.com/Cinqic/Cinqic-Notes",
       },
       calculator: {

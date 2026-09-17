@@ -18,6 +18,10 @@ retired historical research and must not be presented as active model projects
 or as released models. Retired projects removed from active public surfaces
 stay removed unless explicit new site policy reverses that decision.
 
+Cinqic Notes development is paused until further notice; it is not retired or
+discontinued. Keep it in `/apps/` and `/notes/` as a paused project with no public
+release, and do not present it as in active development or as retired.
+
 Use semantic HTML, keyboard-accessible interactions, visible focus states,
 responsive layouts, and reduced-motion support. Do not add trackers, ads,
 external fonts, cookies, secret material, fake contact details, or

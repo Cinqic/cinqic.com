@@ -26,7 +26,7 @@ advertised in the HTML.
 - `/juniper/` — current Juniper implementation, published-release state, and
   platform limitations.
 - `/apps/` — Juniper, Cinqic Notes, and Cinqic Calculator.
-- `/notes/` — Cinqic Notes direction and honest in-development status.
+- `/notes/` — Cinqic Notes overview and its development-paused status.
 - `/research/` — current and completed research overview.
 - `/calculator/` — Cinqic Calculator downloads and product details.
 - `/privacy/` — website and product-privacy boundaries.
