@@ -14,9 +14,9 @@
         name: "Juniper",
         category: "app",
         status: "Published prerelease",
-        publishedVersion: "0.3.0-rc.32",
+        publishedVersion: "0.3.0-rc.33",
         repository: "https://github.com/Cinqic/Juniper-App",
-        release: "https://github.com/Cinqic/Juniper-App/releases/tag/v0.3.0-rc.32",
+        release: "https://github.com/Cinqic/Juniper-App/releases/tag/v0.3.0-rc.33",
       },
       notes: {
         name: "Cinqic Notes",

@@ -13,7 +13,7 @@ from pathlib import Path
 
 DESKTOP_TAG = "v1.1.0"
 ANDROID_TAG = "android-v1.1.0"
-JUNIPER_TAG = "v0.3.0-rc.32"
+JUNIPER_TAG = "v0.3.0-rc.33"
 JUNIPER_VERSION = JUNIPER_TAG.lstrip("v")
 
 # Pinned to specific release tags, not /releases/latest/..., so publishing
